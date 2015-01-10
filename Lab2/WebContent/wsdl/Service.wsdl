@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Connection" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Connection" xmlns:intf="http://Connection" xmlns:tns1="http://model" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Connection" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model"/>
+   <element name="getElement">
+    <complexType>
+     <sequence>
+      <element name="cid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getElementResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getElementReturn" type="tns1:Element"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addElement">
+    <complexType>
+     <sequence>
+      <element name="ename" type="xsd:string"/>
+      <element name="des" type="xsd:string"/>
+      <element name="rate" type="xsd:string"/>
+      <element name="catName" type="xsd:string"/>
+      <element name="review" type="xsd:string"/>
+      <element name="uid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addElementResponse">
+    <complexType>
+     <sequence>
+      <element name="addElementReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getElemInfo">
+    <complexType>
+     <sequence>
+      <element name="sql" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getElemInfoResponse">
+    <complexType>
+     <sequence>
+      <element name="getElemInfoReturn" type="tns1:Element"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addreview">
+    <complexType>
+     <sequence>
+      <element name="review" type="xsd:string"/>
+      <element name="rate" type="xsd:string"/>
+      <element name="eleid" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addreviewResponse">
+    <complexType>
+     <sequence>
+      <element name="addreviewReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUser">
+    <complexType>
+     <sequence>
+      <element name="sql" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getUserReturn" type="tns1:User"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCategory">
+    <complexType>
+     <sequence>
+      <element name="sql" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCategoryResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getCategoryReturn" type="tns1:Category"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signUp">
+    <complexType>
+     <sequence>
+      <element name="fname" type="xsd:string"/>
+      <element name="lname" type="xsd:string"/>
+      <element name="useremail" type="xsd:string"/>
+      <element name="pwd" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signUpResponse">
+    <complexType>
+     <sequence>
+      <element name="signUpReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signIn">
+    <complexType>
+     <sequence>
+      <element name="useremail" type="xsd:string"/>
+      <element name="pwd" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signInResponse">
+    <complexType>
+     <sequence>
+      <element name="signInReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signOut">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="signOutResponse">
+    <complexType>
+     <sequence>
+      <element name="signOutReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteElem">
+    <complexType>
+     <sequence>
+      <element name="ename" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteElemResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteElemReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addCategory">
+    <complexType>
+     <sequence>
+      <element name="sql" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addCategoryResponse">
+    <complexType>
+     <sequence>
+      <element name="addCategoryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getReview">
+    <complexType>
+     <sequence>
+      <element name="uid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getReviewResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getReviewReturn" type="tns1:Review"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCat">
+    <complexType>
+     <sequence>
+      <element name="cname" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteCatResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteCatReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="Element">
+    <sequence>
+     <element name="cid" type="xsd:int"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="eid" type="xsd:int"/>
+     <element name="ename" nillable="true" type="xsd:string"/>
+     <element name="rating" type="xsd:double"/>
+    </sequence>
+   </complexType>
+   <complexType name="User">
+    <sequence>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="fname" nillable="true" type="xsd:string"/>
+     <element name="lname" nillable="true" type="xsd:string"/>
+     <element name="ltime" nillable="true" type="xsd:string"/>
+     <element name="pass" nillable="true" type="xsd:string"/>
+     <element name="uid" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="Category">
+    <sequence>
+     <element name="cid" type="xsd:int"/>
+     <element name="cname" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Review">
+    <sequence>
+     <element name="content" nillable="true" type="xsd:string"/>
+     <element name="ename" nillable="true" type="xsd:string"/>
+     <element name="rate" type="xsd:double"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addElementResponse">
+
+      <wsdl:part element="impl:addElementResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCategoryRequest">
+
+      <wsdl:part element="impl:getCategory" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signOutResponse">
+
+      <wsdl:part element="impl:signOutResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCatResponse">
+
+      <wsdl:part element="impl:deleteCatResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signInRequest">
+
+      <wsdl:part element="impl:signIn" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signUpRequest">
+
+      <wsdl:part element="impl:signUp" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getReviewResponse">
+
+      <wsdl:part element="impl:getReviewResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addElementRequest">
+
+      <wsdl:part element="impl:addElement" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getElemInfoRequest">
+
+      <wsdl:part element="impl:getElemInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getElementRequest">
+
+      <wsdl:part element="impl:getElement" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteElemResponse">
+
+      <wsdl:part element="impl:deleteElemResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signInResponse">
+
+      <wsdl:part element="impl:signInResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getReviewRequest">
+
+      <wsdl:part element="impl:getReview" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserRequest">
+
+      <wsdl:part element="impl:getUser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signOutRequest">
+
+      <wsdl:part element="impl:signOut" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteElemRequest">
+
+      <wsdl:part element="impl:deleteElem" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addreviewRequest">
+
+      <wsdl:part element="impl:addreview" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="signUpResponse">
+
+      <wsdl:part element="impl:signUpResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteCatRequest">
+
+      <wsdl:part element="impl:deleteCat" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getElemInfoResponse">
+
+      <wsdl:part element="impl:getElemInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addreviewResponse">
+
+      <wsdl:part element="impl:addreviewResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getElementResponse">
+
+      <wsdl:part element="impl:getElementResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addCategoryResponse">
+
+      <wsdl:part element="impl:addCategoryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCategoryResponse">
+
+      <wsdl:part element="impl:getCategoryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addCategoryRequest">
+
+      <wsdl:part element="impl:addCategory" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserResponse">
+
+      <wsdl:part element="impl:getUserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Service">
+
+      <wsdl:operation name="getElement">
+
+         <wsdl:input message="impl:getElementRequest" name="getElementRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getElementResponse" name="getElementResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addElement">
+
+         <wsdl:input message="impl:addElementRequest" name="addElementRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addElementResponse" name="addElementResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getElemInfo">
+
+         <wsdl:input message="impl:getElemInfoRequest" name="getElemInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getElemInfoResponse" name="getElemInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addreview">
+
+         <wsdl:input message="impl:addreviewRequest" name="addreviewRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addreviewResponse" name="addreviewResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUser">
+
+         <wsdl:input message="impl:getUserRequest" name="getUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUserResponse" name="getUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCategory">
+
+         <wsdl:input message="impl:getCategoryRequest" name="getCategoryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCategoryResponse" name="getCategoryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signUp">
+
+         <wsdl:input message="impl:signUpRequest" name="signUpRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signUpResponse" name="signUpResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signIn">
+
+         <wsdl:input message="impl:signInRequest" name="signInRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signInResponse" name="signInResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signOut">
+
+         <wsdl:input message="impl:signOutRequest" name="signOutRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:signOutResponse" name="signOutResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteElem">
+
+         <wsdl:input message="impl:deleteElemRequest" name="deleteElemRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteElemResponse" name="deleteElemResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addCategory">
+
+         <wsdl:input message="impl:addCategoryRequest" name="addCategoryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addCategoryResponse" name="addCategoryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getReview">
+
+         <wsdl:input message="impl:getReviewRequest" name="getReviewRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getReviewResponse" name="getReviewResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCat">
+
+         <wsdl:input message="impl:deleteCatRequest" name="deleteCatRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteCatResponse" name="deleteCatResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServiceSoapBinding" type="impl:Service">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getElement">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getElementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getElementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addElement">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addElementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addElementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getElemInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getElemInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getElemInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addreview">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addreviewRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addreviewResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCategory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCategoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCategoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signUp">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signUpRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signUpResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signIn">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signInRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signInResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="signOut">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="signOutRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="signOutResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteElem">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteElemRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteElemResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addCategory">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addCategoryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addCategoryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getReview">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getReviewRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getReviewResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteCat">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteCatRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteCatResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServiceService">
+
+      <wsdl:port binding="impl:ServiceSoapBinding" name="Service">
+
+         <wsdlsoap:address location="http://localhost:8080/Lab2/services/Service"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
